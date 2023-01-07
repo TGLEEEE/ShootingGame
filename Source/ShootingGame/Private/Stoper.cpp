@@ -36,7 +36,6 @@ void AStoper::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherA
 	{
 		gm->playSpeed = 0;
 
-
 		if (!gm->encountMidBoss)
 		{
 			// 중간보스
@@ -49,6 +48,8 @@ void AStoper::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherA
 			UE_LOG(LogTemp, Warning, TEXT("boss appear"));
 			GetWorld()->SpawnActor<ABoss>(ABoss::StaticClass(), GetActorLocation() + FVector(0, 100, 0), FRotator::ZeroRotator);
 		}
+
+		Destroy();
 	}
-	UE_LOG(LogTemp, Warning, TEXT("stop!"));
+	//UE_LOG(LogTemp, Warning, TEXT("stop!"));
 }
